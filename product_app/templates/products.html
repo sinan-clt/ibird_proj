@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+</head>
+<body>
+
+<div class="one">
+    <h1>Products</h1>
+</div>
+
+<div class="listing-section">
+    {% for products in data %}
+    <div class="product">
+        <div class="image-box">
+            <div class="images"><img src="{{ products.image.url}}" style="height:100%; width:100%">
+            </div>
+        </div>
+        <div class="text-box">
+            <h2 class="item">{{ products.product_name }}</h2>
+            <h3 class="category">{{ products.category.title }}</h3>
+            <p class="description">{{ products.product_description }}</p>
+            <h3 class="price">${{ products.price }}</h3>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+  
+</body>
+</html>
